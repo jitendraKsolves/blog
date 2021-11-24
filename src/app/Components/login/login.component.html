@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div class="container" style="margin-top: 50px;">
+<div class="card" [hidden]="logdivshow"> 
+    <h4 class="card-header">Login</h4>
+    <div class="card-body">
+
+        <form (ngSubmit)="onSubmit()">
+        
+          <div class="form-group">
+            <label style="font-size: 20px;" >Username</label>
+            <input required #username="ngModel" type="text" name="uname" [(ngModel)]="user.name" class="form-control" id="name">
+            <div  *ngIf="username?.touched && username?.errors?.required" class="alert alert-danger" >
+              Username is required.
+          </div>
+          </div>
+          <div class="form-group">
+            <label style="font-size: 20px;">Password</label>
+            <input required #password="ngModel" type="password" name="pw" [(ngModel)]="user.password" class="form-control" id="exampleInputPassword1">
+            <div  *ngIf="password?.touched && password?.errors?.required" class="alert alert-danger" >
+              Password is required.
+          </div>
+          </div><br/>
+          <button  type="submit" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Submit</button>
+            <a style="margin-left: 20px;color: blue;" (click)= "switchRegistration()"> Registration</a>
+        </form>
+        </div>
+     </div>
+
+    
+         <div class="card" [hidden]="!logdivshow"> 
+            <h4 class="card-header">Registration</h4>
+            <div class="card-body">
+         <form [formGroup]="registerForm" (ngSubmit)="onSubmitregistration()">
+            <div class="form-group">
+                <label style="font-size: 20px;" >Username</label>
+                <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                  <div *ngIf="f.name.errors.required">Name is required</div>
+              </div>
+
+             </div>
+             <div class="form-group">
+                <label style="font-size: 20px;" >Email</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">Email is required</div>
+              </div>
+
+             </div>
+             <div class="form-group">
+                <label style="font-size: 20px;" >Password</label>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+
+             </div>
+             <br/>
+             <button  type="submit" class="btn btn-primary">Sing Up</button>
+             <a style="margin-left: 20px;color: rgb(143, 128, 46);" (click)= "switchRegistration()"> Cancel</a>
+        </form>
+        </div>
+     </div>
+     
+    </div>

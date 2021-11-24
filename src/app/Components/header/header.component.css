@@ -1,0 +1,37 @@
+
+
+.navbar-nav {
+margin: 0 20px 0 20px;
+}
+.navbar-collapse .navbar-nav li {
+    margin-left:0px;
+    text-align: left;
+
+}
+.nav-item  a:hover {
+    background-color: #007BFF;
+    color: #eee;
+    box-shadow: 0px 8px 16px 0px rgba(63, 30, 248, 0.2);
+
+}
+
+.navbar-nav li:hover > ul.dropdown-menu {
+    display: block;
+}
+
+
+.navbar-shadow[_ngcontent-aow-c124] {
+    box-shadow: 0 2px 2px -1px rgb(0 0 0 / 40%);
+}
+
+
+.user-name{
+    padding-left: 600px; 
+}
+
+@media only screen and (max-width: 600px) {
+    .user-name {
+        padding-left: 0px; 
+    }
+  }
+  

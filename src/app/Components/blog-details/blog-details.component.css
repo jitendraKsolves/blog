@@ -1,0 +1,125 @@
+
+  .commentBox {
+  width: 100%;
+  grid-template-columns: 1fr 6fr;
+  align-items: center;
+  border-radius: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 1.0em;
+
+}
+.commentList {
+  padding: 0;
+}
+.noPadding {
+  padding: 0;
+}
+/* css for comment card */
+.commentBox .box12 {
+  background: #fff;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  align-items: center;
+  border-radius: 0.5em;
+  margin-bottom: 1em;
+  padding: 1em 2%;
+}
+.commentBox span {
+  width: 70%;
+  height: 70%;
+  float: left;
+  background: #75A2B8;
+  border-radius: 50%;
+  margin: -1.2em 0  0 .3em;
+}
+.commentBox span P{
+text-align: center;
+padding-top: 1.0em;
+color: #fff;
+font-size: .75em;
+}
+.content .desc {
+height: 100%;
+overflow: auto;
+padding: 0 10px 0px 0;
+color: #757575;
+font-size: 0.9em;
+margin-bottom: 5px;
+}
+.commentBox p.date {
+  text-transform: uppercase;
+  font-size: .75em;
+  letter-spacing: .1em;
+  color: #9E9E9E;
+  margin-bottom: .4em;
+}
+.marginBottom {
+margin-bottom: 10px;
+}
+div .desc::-webkit-scrollbar {
+width: 5px;
+}
+div .desc::-webkit-scrollbar-track {
+background: #f1f1f1; 
+}
+div .desc::-webkit-scrollbar-thumb {
+background: #888; 
+}
+div .desc::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}
+.cursorPointer {
+cursor: pointer;
+color: #1470d2!important;
+}
+.commentBox p.desc {
+padding-left: 10px;
+}
+
+@media
+only screen and (max-width: 760px),
+(min-device-width: 500px) and (max-device-width: 1024px) {
+.commentBox .box12 {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 6fr;
+  align-items: center;
+  border-radius: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 1.0em;
+}
+.commentBox span {
+width: 3em;
+height: 3em;
+
+background: #75A2B8;
+border-radius: 50%;
+margin: -0.8em 0 .3em;
+}
+.commentBox span P{
+text-align: center;
+padding-top: 1.5em;
+font-size: 11px;
+color: #fff;
+}
+.commentBox p.desc {
+padding-left: 10px;
+}
+.topbar{
+width:100%;
+height:100%;
+border: 1px solid gray;
+}
+
+.div3{
+  padding-top: 20px;
+}
+.d2 {
+float: none;
+margin-right:0;
+width:auto;
+border:0;
+}
+
+}

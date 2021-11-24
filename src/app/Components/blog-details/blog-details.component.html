@@ -1,0 +1,88 @@
+
+<div class="container">
+    <button class="btn btn-primary" style="margin: 10px;" [routerLink]="['/bloglist']"><i class="fas fa-arrow-left"></i></button>
+    
+<div class="card">
+   
+            <div class="card-header">
+            <h1 style="text-align: center;">{{title}}</h1>
+            </div>
+
+            
+
+            <div class="card-body">
+                <div class="col-12" style="padding-bottom: 20px;">{{content}}</div>
+             
+            </div>
+
+            </div>
+            <br/><br/>
+                    <form >
+                        <div class="row">
+                        <div class="col-lg-6" [hidden]="editCommentdiv" >
+                            <textarea name = "comment" [(ngModel)]="addcommentObj.comment" class="form-control marginBottom" placeholder = "Comment..."></textarea>
+                        </div><br/>
+
+                        <div class="col-lg-6"[hidden]="!editCommentdiv" >
+                            <textarea name = "comment" [(ngModel)]="editcommentObj.comment" class="form-control marginBottom"></textarea>
+                        </div><br/>
+
+                        <div class="col-lg-2" style="padding-top: 10px;" [hidden]="editCommentdiv">
+                            <button (click)= "onSubmit()" class="form-control"  class="btnedit btn-block mb-2" >Submit</button>
+                        </div>
+                        <div class="col-lg-2" style="padding-top: 10px;" [hidden]="!editCommentdiv">
+                            <button (click)="EditComment()" class="form-control"  class="btnedit btn-block mb-2" >Save Changes</button>
+                        </div>
+                        </div>
+                        <hr/>
+                </form>
+                    <div class="row">
+                         <div class="commentBox">
+                            <ul *ngFor="let comment of commentsArr" class="commentList">
+                                <div [hidden]= "comment?.user_id != userId" >
+                                    <button  [hidden]= "comment?.user_id != userId" (click)="openModal(template, comment?.id)" type="btn" class="btn btn-danger float-right" >
+                                        <i class="fa fa-trash"> </i> 
+                                    </button>
+                                    <button class="btn float-right" (click) = editComment(comment.id)><i class="fas fa-edit"></i>Edit</button>
+                                    
+                                  </div>
+                               
+                                 
+                                <div class="box12">
+                                   <span><P>{{comment.name}}</P></span>
+                                     <div class="content">
+                                     <p class="desc" >{{comment.comment}} </p>
+                                     <p class="date">{{comment.date | date: 'MMM d, y H:mm:ss' : '+0900'}}</p>
+                                   </div>
+                                   
+                                   
+                               </div>
+                               <!-- <div class="row">
+                                 <div class="col-sm-12">
+                                    <a><i class="fas fa-thumbs-up"></i></a> &nbsp;&nbsp;
+                                    <a><i class="fas fa-thumbs-down"></i></a>&nbsp;&nbsp;
+                                   
+                                 </div>
+                                 <div class="col-sm-12">  <input type="text" class="from-control"></div>
+
+                                 </div> -->
+                               <hr/>
+                            </ul>
+                          </div>
+                     </div>
+               
+    </div>
+
+    <ng-template #template>
+        <div class="modal-header">
+           <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+        <div class="modal-body text-center">
+          <p>Are you sure want to disable <span class="text-primary">{{message}} ?</span></p>
+          <button type="button" class="btn btn-primary modal-buttons" (click)="decline()" >No</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger modal-buttons" (click)="confirm()" >Yes</button>
+        </div>
+      </ng-template>
+

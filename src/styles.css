@@ -1,0 +1,55 @@
+/* Tab css  */
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    
+  }
+  
+  .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    color: rgb(0, 0, 0);
+    background-color: #d2d4d6;
+    border-color: #e9edf1;
+  }
+  
+  .nav-tabs .nav-link.disabled {
+    color: #6c757d;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  
+  .nav-tabs .nav-link.active,
+  .nav-tabs .nav-item.show .nav-link {
+    color: #fff!important;
+    background-color: #495563!important;
+    border-color: #ebedf2 #ebedf2 #ffffff;
+  }
+
+  .navbar-nav {
+    margin: 0 20px 0 20px;
+    }
+    .navbar-collapse .navbar-nav li {
+        margin-left:0px;
+        text-align: left;
+    
+    }
+    .nav-item  a:hover {
+        background-color: #007BFF;
+        color: #eee !important;
+        box-shadow: 0px 8px 16px 0px rgba(63, 30, 248, 0.2);
+    
+    }
+    
+    .navbar-nav li:hover > ul.dropdown-menu {
+        display: block;
+    }
+   
+   
+    
+    .navbar-shadow[_ngcontent-aow-c124] {
+        box-shadow: 0 2px 2px -1px rgb(0 0 0 / 40%);
+    }
+    .navbar-light .navbar-nav .nav-link.active
+    {
+      color: rgb(18 62 191 / 90%);
+    }

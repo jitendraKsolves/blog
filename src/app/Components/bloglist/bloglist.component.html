@@ -1,0 +1,70 @@
+
+<div class="container">
+          <div class="row">
+            <div class="col-lg-9"></div>
+            <div class="col-lg-3">
+              <div class="select-wrap">
+                  <div class="searchbar-icon " (click)="SearchFilter()"></div>
+                  <input  [(ngModel)]="globalQuery"  (focusout) ="SearchFilter()"class="search_input form-control" type="text" name="" placeholder="Search..." >
+              </div>
+              </div>
+          </div>
+  <div class="row">
+          <div class="col-md-12" *ngFor="let blog of blogArr">
+             <div class="blog-card blog-card-blog">
+                <!-- <div class="blog-card-image">
+                    <a href="#"> <img class="img" src="https://picsum.photos/id/1084/535/353?grayscale"> </a>
+                    <div class="ripple-cont"></div>
+                </div> -->
+                <div class="blog-table">
+                <h4 class="blog-card-caption">
+                    <a>{{blog?.title}}</a>
+                </h4>
+                <p class="blog-card-description" style="display: -webkit-box;
+                overflow : hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical; ">{{blog?.content}}</p>
+                <hr/>
+                <div class="ftr">
+                    <div class="col-sm-2">
+                    <button class="btn-primary" (click)= "detailsPage(blog?.id)">Read More</button>
+                    </div>
+                    <div class="col-sm-1">
+                    <button style="margin: 0px;height: 35px;" [hidden]= "blog?.user_id != userId" (click)= "editBlog(blog?.id)" type="btn" class="btn btn-dark" >
+                      Edit
+                      </button>
+                    </div>
+                    <div class="col-sm-1">
+                      <button style="margin: 0px;height: 35px;" [hidden]= "blog?.user_id != userId" (click)="openModal(template, blog?.id)" type="btn" class="btn btn-danger" >
+                        delete
+                        </button>
+                      </div>
+
+                    <div class="author float-right">
+                      <a > <img src="../../../assets/img/user.png" alt="..." class="avatar img-raised"> <span>{{blog?.name}}</span> </a>
+                  </div>
+                    <div class="stats"> <i class="far fa-clock"></i>&nbsp;&nbsp;&nbsp; {{blog.date | date: 'YYYY-MM-dd'}} </div>
+                </div>
+          </div>
+          
+        </div>
+    </div>
+          <!-- <div class="justify-content-end" *ngIf="totalCount">
+            <pagination style="float: right;" [boundaryLinks]="true" [itemsPerPage]="5" [maxSize]="5" [totalItems]="totalCount" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination>
+        </div> -->
+    </div>
+    </div>
+
+    <ng-template #template>
+      <div class="modal-header">
+         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+      <div class="modal-body text-center">
+        <p>Are you sure want to disable <span class="text-primary">{{message}} ?</span></p>
+        <button type="button" class="btn btn-primary modal-buttons" (click)="decline()" >No</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-danger modal-buttons" (click)="confirm()" >Yes</button>
+      </div>
+    </ng-template>

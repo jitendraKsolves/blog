@@ -1,0 +1,36 @@
+<div class="container">
+
+
+    <div class="card"> 
+        <h4 class="card-header">Write Blog</h4>
+
+        <div class="card-body">
+
+    
+            <div class="form-group">
+                <label style="font-size: 20px;" >Title</label>
+                <input type="text" [(ngModel)]="blogsdataObj.title" name="title" class="form-control"  />
+            </div>
+            <div class="form-group">
+                <label style="font-size: 20px;" >Content</label>
+                <textarea style="height: 500px;" [(ngModel)]="blogsdataObj.content" name="content" type="text"  class="form-control"></textarea>
+                
+          </div>
+        
+       
+         <div class="row">
+            
+                <div class="col-sm-2" [hidden]="isEditMode">
+                  <button   class="btn btn-primary " (click)="onSubmitregistration()">Submit</button>
+                </div>
+                <div class="col-sm-2" [hidden]="!isEditMode">
+                    <button    type="submit" class="btn btn-success"  (click)="saveEditData()">Save</button>
+                    </div>
+                <div class="col-sm-2">
+                <button  type="submit" class="btn btn-warning"  (click)="Cancelblog()">Cancel</button>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
+
